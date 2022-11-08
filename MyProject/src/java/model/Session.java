@@ -9,18 +9,18 @@ import java.util.ArrayList;
 
 /**
  *
- * @author sonnt
+ * @author Ngo Tung Son
  */
 public class Session {
     private int id;
-    private Group group;
     private Lecturer lecturer;
     private Room room;
-    private TimeSlot slot;
+    private TimeSlot timeslot;
     private Date date;
+    private Group group;
     private int index;
-    private boolean attanded;
-    private ArrayList<Attandance> atts = new ArrayList<>();
+    private boolean attandated; 
+    private ArrayList<Attandance> attandances = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -28,14 +28,6 @@ public class Session {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
     }
 
     public Lecturer getLecturer() {
@@ -54,12 +46,12 @@ public class Session {
         this.room = room;
     }
 
-    public TimeSlot getSlot() {
-        return slot;
+    public TimeSlot getTimeslot() {
+        return timeslot;
     }
 
-    public void setSlot(TimeSlot slot) {
-        this.slot = slot;
+    public void setTimeslot(TimeSlot timeslot) {
+        this.timeslot = timeslot;
     }
 
     public Date getDate() {
@@ -70,6 +62,14 @@ public class Session {
         this.date = date;
     }
 
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
     public int getIndex() {
         return index;
     }
@@ -78,21 +78,20 @@ public class Session {
         this.index = index;
     }
 
-    public boolean isAttanded() {
-        return attanded;
+    public boolean isAttandated() {
+        return attandated;
     }
 
-    public void setAttanded(boolean attanded) {
-        this.attanded = attanded;
+    public void setAttandated(boolean attandated) {
+        this.attandated = attandated;
     }
 
-    public ArrayList<Attandance> getAtts() {
-        return atts;
+    public ArrayList<Attandance> getAttandances() {
+        return attandances;
     }
 
-    public void setAtts(ArrayList<Attandance> atts) {
-        this.atts = atts;
+    public void setAttandances(ArrayList<Attandance> attandances) {
+        this.attandances = attandances;
     }
     
 }
- 

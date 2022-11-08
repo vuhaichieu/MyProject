@@ -8,13 +8,13 @@ import java.util.ArrayList;
 
 /**
  *
- * @author sonnt
+ * @author Ngo Tung Son
  */
 public class Student {
     private int id;
     private String name;
     private ArrayList<Group> groups = new ArrayList<>();
-    private ArrayList<Attandance> atts = new ArrayList<>();
+    private ArrayList<Attandance> attandances = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -40,12 +40,12 @@ public class Student {
         this.groups = groups;
     }
 
-    public ArrayList<Attandance> getAtts() {
-        return atts;
+    public ArrayList<Attandance> getAttandances() {
+        return attandances;
     }
 
-    public void setAtts(ArrayList<Attandance> atts) {
-        this.atts = atts;
+    public void setAttandances(ArrayList<Attandance> attandances) {
+        this.attandances = attandances;
     }
     
 }

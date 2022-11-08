@@ -6,20 +6,21 @@ package model;
 
 /**
  *
- * @author sonnt
+ * @author Ngo Tung Son
  */
 public class Attandance {
-    private Student student;
+    private int id;
     private Session session;
+    private Student student;
     private boolean present;
     private String description;
 
-    public Student getStudent() {
-        return student;
+    public int getId() {
+        return id;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Session getSession() {
@@ -28,6 +29,14 @@ public class Attandance {
 
     public void setSession(Session session) {
         this.session = session;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     public boolean isPresent() {

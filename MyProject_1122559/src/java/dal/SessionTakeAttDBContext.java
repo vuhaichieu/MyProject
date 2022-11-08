@@ -22,7 +22,7 @@ import model.TimeSlot;
  *
  * @author sonnt
  */
-public class SessionDBContext extends DBContext<Session> {
+public class SessionTakeAttDBContext extends DBContext<Session> {
 
     public void updateAttandance(Session model) {
         try {
@@ -66,14 +66,14 @@ public class SessionDBContext extends DBContext<Session> {
             try {
                 connection.rollback();
             } catch (SQLException ex1) {
-                Logger.getLogger(SessionDBContext.class.getName()).log(Level.SEVERE, null, ex1);
+                Logger.getLogger(SessionTakeAttDBContext.class.getName()).log(Level.SEVERE, null, ex1);
             }
-            Logger.getLogger(SessionDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SessionTakeAttDBContext.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 connection.setAutoCommit(true);
             } catch (SQLException ex) {
-                Logger.getLogger(SessionDBContext.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(SessionTakeAttDBContext.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -141,7 +141,7 @@ public class SessionDBContext extends DBContext<Session> {
                 return ses;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SessionDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SessionTakeAttDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

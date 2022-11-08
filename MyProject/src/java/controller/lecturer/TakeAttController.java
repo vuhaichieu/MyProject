@@ -5,7 +5,7 @@
 package controller.lecturer;
 
 import dal.AttandanceDBContext;
-import dal.SessionDBContext;
+import dal.SessionTakeAttDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,8 +13,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import model.Attandance;
-import model.Session;
+import model.AttandanceTakeAtt;
+import model.SessionTakeAtt;
 import model.Student;
 import util.DateTimeHelper;
 
@@ -40,11 +40,11 @@ public class TakeAttController extends HttpServlet {
             throws ServletException, IOException {
         int sesid = Integer.parseInt(request.getParameter("id"));
         AttandanceDBContext attDB = new AttandanceDBContext();
-        ArrayList<Attandance> atts = attDB.getAttsBySessionId(sesid);
+        ArrayList<AttandanceTakeAtt> atts = attDB.getAttsBySessionId(sesid);
         request.setAttribute("atts", atts);
         
-        SessionDBContext sesDB = new SessionDBContext();
-        Session ses = sesDB.get(sesid);
+        SessionTakeAttDBContext sesDB = new SessionTakeAttDBContext();
+        SessionTakeAtt ses = sesDB.get(sesid);
         request.setAttribute("ses", ses);
         
 //        if(DateTimeHelper.getDaystoCurrent(ses.getDate())>=2)
@@ -66,12 +66,12 @@ public class TakeAttController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Session ses = new Session();
+        SessionTakeAtt ses = new SessionTakeAtt();
         ses.setId(Integer.parseInt(request.getParameter("sesid")));
         
         String[] stdids = request.getParameterValues("stdid");
         for (String stdid : stdids) {
-            Attandance a = new Attandance();
+            AttandanceTakeAtt a = new AttandanceTakeAtt();
             Student s = new Student();
             a.setStudent(s);
             a.setSession(ses);
@@ -81,7 +81,7 @@ public class TakeAttController extends HttpServlet {
             ses.getAtts().add(a);
         }
         
-        SessionDBContext db = new SessionDBContext();
+        SessionTakeAttDBContext db = new SessionTakeAttDBContext();
         db.updateAttandance(ses);
         response.sendRedirect("takeatt?id="+ses.getId());
     }

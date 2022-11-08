@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author sonnt
+ * @author Ngo Tung Son
  */
 public class Room {
     private int id;
