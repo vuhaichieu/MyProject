@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author sonnt
+ * @author vuhai
  */
 public class SessionTakeAtt {
     private int id;

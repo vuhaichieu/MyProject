@@ -20,7 +20,7 @@ import util.DateTimeHelper;
 
 /**
  *
- * @author sonnt
+ * @author vuhai
  */
 public class TakeAttController extends HttpServlet {
 
@@ -69,7 +69,7 @@ public class TakeAttController extends HttpServlet {
         SessionTakeAtt ses = new SessionTakeAtt();
         ses.setId(Integer.parseInt(request.getParameter("sesid")));
         
-        String[] stdids = request.getParameterValues("stdid");
+        String[] stdids = request.getParameterValues("stdid"); //lay ra obj att
         for (String stdid : stdids) {
             AttandanceTakeAtt a = new AttandanceTakeAtt();
             Student s = new Student();

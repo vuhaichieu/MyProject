@@ -20,7 +20,7 @@ import model.TimeSlot;
 
 /**
  *
- * @author Ngo Tung Son
+ * @author vuhai
  */
 public class SessionTimetableDBContext extends dal.DBContext<Session> {
 

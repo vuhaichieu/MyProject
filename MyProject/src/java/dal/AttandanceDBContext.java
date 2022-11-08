@@ -16,7 +16,7 @@ import model.Student;
 
 /**
  *
- * @author sonnt
+ * @author vuhai
  */
 public class AttandanceDBContext extends DBContext<AttandanceTakeAtt> {
 

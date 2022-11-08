@@ -7,20 +7,16 @@ package controller.login;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import dal.LoginDAO;
-import jakarta.servlet.http.Cookie;
-import model.Account;
+
 /**
  *
  * @author vuhai
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
-public class LoginController extends HttpServlet {
+public class HomeController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,9 +29,14 @@ public class LoginController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("View/Login.jsp").forward(request, response);
-
+        response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession();
+        session.removeAttribute("username");
+        session.removeAttribute("password");
+        
+        response.sendRedirect("View/Login.jsp");
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -48,7 +49,6 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         processRequest(request, response);
     }
 
@@ -63,32 +63,6 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        response.setContentType("text/html;charset=UTF-8");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String remember = request.getParameter("remember");
-        LoginDAO dao = new LoginDAO();
-        Account accounts = dao.findAllAccount(username, password);
-        
-        if(accounts != null){
-            HttpSession session = request.getSession();
-            session.setAttribute(Constants.USER_LOGGED, username);
-            Cookie cookUname = new Cookie("cookUname", username);
-            Cookie cookPass = new Cookie("cookPass", password);
-            Cookie cookRemember = new Cookie("cookRemember", remember);
-            response.addCookie(cookUname);
-            response.addCookie(cookPass);
-            response.addCookie(cookRemember);
-            request.setAttribute("accounts", accounts);
-            request.setAttribute("message", "Login successfull");
-            request.getRequestDispatcher("Home.jsp").forward(request, response);
-        }else{
-            request.setAttribute("message", "Login wrong");
-        }
-        
-
-       
         processRequest(request, response);
     }
 

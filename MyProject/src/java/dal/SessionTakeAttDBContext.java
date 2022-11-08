@@ -21,7 +21,7 @@ import model.TimeSlot;
 
 /**
  *
- * @author sonnt
+ * @author vuhai
  */
 public class SessionTakeAttDBContext extends DBContext<SessionTakeAtt> {
 
@@ -139,7 +139,7 @@ public class SessionTakeAttDBContext extends DBContext<SessionTakeAtt> {
                 g.setSubject(sub);
                 sub.setId(rs.getInt("subid"));
                 sub.setName(rs.getString("subname"));
-                return ses;
+                return ses;     //
             }
         } catch (SQLException ex) {
             Logger.getLogger(SessionTakeAttDBContext.class.getName()).log(Level.SEVERE, null, ex);

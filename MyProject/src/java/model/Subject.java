@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Ngo Tung Son
+ * @author vuhai
  */
 public class Subject {
     private int id;

@@ -15,7 +15,7 @@ import model.TimeSlot;
 
 /**
  *
- * @author Ngo Tung Son
+ * @author vuhai
  */
 public class TimeSlotDBContext extends DBContext<TimeSlot> {
 

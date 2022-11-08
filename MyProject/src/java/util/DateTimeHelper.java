@@ -12,7 +12,7 @@ import java.util.Date;
 
 /**
  *
- * @author Ngo Tung Son
+ * @author vuhai
  */
 public class DateTimeHelper {
 

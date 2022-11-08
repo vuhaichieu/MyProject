@@ -8,7 +8,7 @@ import model.SessionTakeAtt;
 
 /**
  *
- * @author sonnt
+ * @author vuhai
  */
 public class AttandanceTakeAtt {
     private Student student;
